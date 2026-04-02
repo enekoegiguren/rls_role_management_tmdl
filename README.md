@@ -37,7 +37,7 @@ Spark DataFrame (rls)
 ```
 
 1. You define a `config` — one entry per dimension to secure (e.g. `CountryCode`, `TerritoryCode`, `BrandingCode`)
-2. You define `global_filters` — filters applied to every role on their own fixed table (e.g. `Is_Consolidated = "Consolidated"` on `DT_Customer`)
+2. You define `global_filters` — filters applied to every role on their own fixed table (e.g. `Is_National = "National"` on `DT_Customer`)
 3. The notebook reads distinct values from your RLS DataFrame, generates a role per value, applies the DAX filters, and assigns members from the `Username` column
 
 ---
@@ -92,8 +92,8 @@ Filters applied to **every** role, each on their own fixed table.
 global_filters = [
     {
         "table":  "DT_Customer",    # Table in the semantic model
-        "column": "Is_Consolidated",
-        "value":  "Consolidated"
+        "column": "Is_National",
+        "value":  "National"
     },
     # Add as many as needed
 ]
